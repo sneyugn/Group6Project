@@ -20,7 +20,7 @@ public class MenuController extends Application {
     public void start (Stage primaryStage) {
         Label businessLabel = new Label("Six Sushi");
         Label groupMembersLabel = new Label ("by Simon, Vlad, and Matthew");
-        Button cartButton = new Button();
+        Button cartButton = new Button("CART");
         Button orderButton = new Button("ORDER");
         Button salesButton = new Button("CHECK SALES");
 
@@ -46,22 +46,24 @@ public class MenuController extends Application {
         cartView.setPreserveRatio(true);
 
         //Set Cart Icon to Button
-        cartButton.setGraphic(cartView);
-        cartButton.setOnAction(e -> System.out.println("Order clicked!"));
+//        cartButton.setGraphic(cartView);
+//        cartButton.setOnAction(e -> System.out.println("Order clicked!"));
 
         // Styles
 
-        orderButton.setStyle("-fx-background-color: #FFFFFF; -fx-font-weight: bold; -fx-border-radius: 0; " +
+        orderButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 0; " +
                 "-fx-background-radius: 0; -fx-font-size:14px; -fx-font-family: Courier New; -fx-border-color: #000000; -fx-border-width: 3px;");
 
-        salesButton.setStyle("-fx-background-color: #FFFFFF; -fx-font-weight: bold; -fx-border-radius: 0; " +
+        salesButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 0; " +
+                "-fx-background-radius: 0; -fx-font-size:14px; -fx-font-family: Courier New; -fx-border-color: #000000; -fx-border-width: 3px;");
+        cartButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 0; " +
                 "-fx-background-radius: 0; -fx-font-size:14px; -fx-font-family: Courier New; -fx-border-color: #000000; -fx-border-width: 3px;");
 
         businessLabel.setStyle("-fx-font-size: 72px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: Courier New; -fx-font-style: italic;");
         groupMembersLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: Courier New; -fx-font-style: italic;");
 
 
-        HBox cartBox = new HBox(0,cartView);
+        HBox cartBox = new HBox(0,cartButton);
         HBox labelBox = new HBox(0, businessLabel);
         HBox groupLabel = new HBox(0, groupMembersLabel);
         HBox imageBox = new HBox(0,logoView);
@@ -78,7 +80,7 @@ public class MenuController extends Application {
 
 
 
-        VBox layout = new VBox(10);
+        VBox layout = new VBox(0);
 
         layout.setStyle("-fx-background-color: BEIGE; -fx-border-radius: 20; -fx-background-radius: 0;");
         HBox buttonBox = new HBox(15,orderButton,salesButton);
@@ -122,6 +124,8 @@ public class MenuController extends Application {
 
 
         Scene scene = new Scene(layout, 400, 500);
+
+        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Six Sushi Kiosk");
