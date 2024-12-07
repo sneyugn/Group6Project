@@ -50,26 +50,29 @@ public class OrderController {
 
         // Create a back button and cart button at the top
         Button backButton = new Button("Back to Menu");
-        Button cartButton = new Button("Cart");
+        Button checkoutButton = new Button("Checkout");
 
         // Style buttons
         backButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
                 "-fx-background-radius: 25px; -fx-font-size:12px; -fx-font-family: Courier New; " +
                 "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 20px;");
-        cartButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
-                "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
-                "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
+        checkoutButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
+                "-fx-background-radius: 25px; -fx-font-size:12px; -fx-font-family: Courier New; " +
+                "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 20px;");
+
 
         // Create an HBox to arrange buttons at the top left and top right
         HBox topBar = new HBox(10);
+        topBar.setSpacing(110);
         topBar.setPadding(new Insets(10, 10, 10, 10)); // Add padding around the HBox
-        topBar.getChildren().addAll(backButton); // Add back button to left
-        topBar.setStyle("-fx-alignment: top-left;");
+        topBar.getChildren().addAll(backButton, checkoutButton); // Add back button to left
+        topBar.setStyle("-fx-alignment: top-center;");
 
-        // Add Cart button to the right
-        HBox cartBox = new HBox(10, cartButton);
-        cartBox.setStyle("-fx-alignment: top-right;");
-        cartBox.setPadding(new Insets(10, 10, 10, 10));
+//        // Add Cart button to the right
+//        HBox cartBox = new HBox(10);
+//        cartBox.setStyle("-fx-alignment: top-right;");
+//        cartBox.setPadding(new Insets(10, 10, 10, 10));
+//        cartBox.getChildren().addAll(checkoutButton);
 
 
         // Loop through menu items and create UI components for each item
@@ -87,11 +90,11 @@ public class OrderController {
             Image image = new Image(imagePath);
 //// Update the path
 
-            if (image.isError()) {
-                System.out.println("Error loading image: " + image);  // Image load failed
-            } else {
-                System.out.println("Image loaded successfully: " + image);  // Image loaded
-            }
+//            if (image.isError()) {
+//                System.out.println("Error loading image: " + image);  // Image load failed
+//            } else {
+//                System.out.println("Image loaded successfully: " + image);  // Image loaded
+//            }
 
             ImageView imageView = new ImageView(image);
             imageView.setFitHeight(120);  // Set the height of the image
@@ -194,15 +197,50 @@ public class OrderController {
         });
 
         // Action for Cart button (this can be modified to go to CartController or similar)
-        cartButton.setOnAction(e -> {
+        checkoutButton.setOnAction(e -> {
             // Logic for cart button (e.g., open Cart page)
             System.out.println("Cart button clicked!");
         });
 
-        // Action for "Add to Cart" button
         addToCartButton.setOnAction(e -> {
-            System.out.println("Items added to cart!");
+            // Collect the items that have quantity > 0
+            System.out.println("Add to cart clicked");
+            List<MenuItem> orderItems = new ArrayList<>();
+            int totalQuantity = 0;
+
+            // Loop through menu items to find those with a quantity > 0
+            for (MenuItem item : menuItems) {
+                if (item.getQuantity() > 0) {
+                    orderItems.add(item);
+                    totalQuantity += item.getQuantity();  // Add the quantity to the total
+                    System.out.println(item.getName() + " - Quantity: " + item.getQuantity());
+                }
+            }
+
+            // If no items were added to the cart, print a message
+            if (orderItems.isEmpty()) {
+                System.out.println("No items in the order.");
+            } else {
+                // Display the total quantity of items in the order
+                System.out.println("Total quantity of items in the order: " + totalQuantity);
+
+                // Pass total quantity to the Checkout page (passing a reference to CheckoutController, for example)
+                CheckoutController checkoutController = new CheckoutController(totalQuantity);
+               // checkoutController.displayCheckoutPage();  // Call a method to show the checkout page
+            }
+
+            // Reset the quantities of all items to 0 after adding to cart
+            for (MenuItem item : menuItems) {
+
+                item.setQuantity(0);
+            }
         });
+
+
+    }
+    public void start() {
+        stage.setScene(scene);
+        stage.show();  // Display the stage
     }
 
     public Scene getScene() {

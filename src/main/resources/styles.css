@@ -8,12 +8,12 @@
     -fx-font-weight: bold;             /* Font weight */
     -fx-background-radius: 5px;       /* Rounded corners */
     -fx-border-radius: 7px;           /* Rounded corners for the border */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
 }
 
 /* Button hover effect */
 .button:hover {
-    -fx-background-color: #757575;  /* Darken the background color (steelblue) */
+    -fx-background-color: #cccccc;  /* Darken the background color (steelblue) */
     -fx-text-fill: black;            /* Optional: Change text color when hovered */
    }
 
@@ -39,7 +39,7 @@
 */
 }
 .button-circle > .text {
-    -fx-translate-y: -2px; /* Move the text up */
+    -fx-translate-y: -3px; /* Move the text up */
 }
 
 
@@ -49,4 +49,32 @@
     -fx-text-fill: black;            /* Optional: Change text color when hovered */
 
 }
+/* Style for the ScrollPane's scrollbar */
+.scroll-bar {
+    -fx-background-color: #e4d5b7;  /* Set the background color of the scrollbar */
+    -fx-background-radius: 10px;    /* Round the corners of the scrollbar */
+}
+
+/* Style for the scrollbar thumb (the draggable part) */
+.scroll-bar .thumb {
+    -fx-background-color: #d9b99b;  /* Set the color of the thumb */
+    -fx-background-radius: 0px;     /* Round the corners of the thumb */
+    /*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 0);  /* Add a shadow effect */
+}
+
+/* Style for the scrollbar track (the background behind the thumb) */
+.scroll-bar .track {
+    -fx-background-color: #e4d5b7; /* Set the background color of the track */
+    -fx-background-radius: 10px;    /* Round the corners of the track */
+}
+
+/* Optional: Change the width of the scrollbar */
+.scroll-pane > .viewport > .scroll-bar:vertical {
+    -fx-pref-width: 12px;  /* Set a specific width for vertical scrollbar */
+}
+
+.scroll-pane > .viewport > .scroll-bar:horizontal {
+    -fx-pref-height: 12px; /* Set a specific height for horizontal scrollbar */
+}
+
 

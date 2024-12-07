@@ -23,9 +23,9 @@ public class MenuController extends Application {
     public void start (Stage primaryStage) {
         Label businessLabel = new Label("Six Sushi");
         Label groupMembersLabel = new Label("by Simon, Vlad, and Matthew");
-        Button cartButton = new Button("CART");
-        Button orderButton = new Button("ORDER NOW");
-        Button salesButton = new Button("CHECK SALES");
+        //Button cartButton = new Button("CART");
+        Button orderButton = new Button("Order Now");
+        Button salesButton = new Button("Check Sales");
 
         //Image Insert
         Image logo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/6sushi.png"))); // Relative path
@@ -61,21 +61,18 @@ public class MenuController extends Application {
                 "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
                 "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
 
-        cartButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
-                "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
-                "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
 
         businessLabel.setStyle("-fx-font-size: 72px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: Courier New; -fx-font-style: italic;");
         groupMembersLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: Courier New; -fx-font-style: italic;");
 
 
-        HBox cartBox = new HBox(0, cartButton);
+//        HBox cartBox = new HBox(0, cartButton);
         HBox labelBox = new HBox(0, businessLabel);
         HBox groupLabel = new HBox(0, groupMembersLabel);
         HBox imageBox = new HBox(0, logoView);
-
-        cartBox.setStyle("-fx-alignment: top-right;");
-        cartBox.setPadding(new Insets(10, 10, 0, 0));
+//
+//        cartBox.setStyle("-fx-alignment: top-right;");
+//        cartBox.setPadding(new Insets(10, 10, 0, 0));
 
         labelBox.setStyle("-fx-alignment: center;");
         labelBox.setPadding(new Insets(0, 0, 0, 0));
@@ -86,6 +83,7 @@ public class MenuController extends Application {
 
 
         VBox layout = new VBox(0);
+        layout.setPadding(new Insets(40,0,0,0));
         // Create a semi-transparent black rectangle overlay
 
         //layout.setStyle("-fx-background-color: transparent;");
@@ -105,7 +103,7 @@ public class MenuController extends Application {
 
         layout.getChildren().addAll(
 
-                cartBox,
+                //cartBox,
                 labelBox,
                 groupLabel,
                 imageBox,
@@ -124,11 +122,11 @@ public class MenuController extends Application {
 
         //Control what buttons do
 
-        cartButton.setOnAction(e -> {
-
-            CartController cartController = new CartController(primaryStage);
-            primaryStage.setScene(cartController.getScene());
-        });
+//        cartButton.setOnAction(e -> {
+//
+//            CartController cartController = new CartController(primaryStage);
+//            primaryStage.setScene(cartController.getScene());
+//        });
 
 
         orderButton.setOnAction(e -> {
