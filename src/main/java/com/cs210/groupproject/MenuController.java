@@ -22,7 +22,7 @@ public class MenuController extends Application {
         Label businessLabel = new Label("Six Sushi");
         Label groupMembersLabel = new Label("by Simon, Vlad, and Matthew");
         Button cartButton = new Button("CART");
-        Button orderButton = new Button("ORDER");
+        Button orderButton = new Button("ORDER NOW");
         Button salesButton = new Button("CHECK SALES");
 
         //Image Insert
@@ -84,7 +84,7 @@ public class MenuController extends Application {
         HBox buttonBox = new HBox(15, orderButton, salesButton);
 
         buttonBox.setSpacing(50);
-        buttonBox.setPadding(new Insets(0, 0, 0, 20));
+        buttonBox.setPadding(new Insets(0, 0, 0, 0));
         buttonBox.setStyle("-fx-alignment: center;");
 
         layout.getChildren().addAll(
