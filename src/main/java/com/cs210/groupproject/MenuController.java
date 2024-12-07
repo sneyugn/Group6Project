@@ -29,7 +29,7 @@ public class MenuController extends Application {
 
         //Image Insert
         Image logo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/6sushi.png"))); // Relative path
-        Image cart = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/shoppingcart.png")));
+        //Image cart = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/shoppingcart.png")));
         Image sushi = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/sushibg.png")));
 
 
@@ -37,15 +37,15 @@ public class MenuController extends Application {
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/6sushi.png"))));
         // Display the image using ImageView
         ImageView logoView = new ImageView(logo);
-        ImageView cartView = new ImageView(cart);
+       // ImageView cartView = new ImageView(cart);
         //Set image properties
         logoView.setFitWidth(250);  // Resize width
         logoView.setFitHeight(250); // Resize height
         logoView.setPreserveRatio(true);
 
-        cartView.setFitWidth(35);  // Resize width
-        cartView.setFitHeight(35); // Resize height
-        cartView.setPreserveRatio(true);
+//        cartView.setFitWidth(35);  // Resize width
+//        cartView.setFitHeight(35); // Resize height
+//        cartView.setPreserveRatio(true);
 
         //Set Cart Icon to Button
 //        cartButton.setGraphic(cartView);

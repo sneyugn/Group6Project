@@ -8,7 +8,6 @@
     -fx-font-weight: bold;             /* Font weight */
     -fx-background-radius: 5px;       /* Rounded corners */
     -fx-border-radius: 7px;           /* Rounded corners for the border */
-
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
 }
 
@@ -20,7 +19,7 @@
 
 /* Default button style */
 .button-circle {
-    -fx-background-color: #e8e8e8; /* White background color */
+    -fx-background-color: #f2f2f2; /* White background color */
     -fx-text-fill: white; /* White text color */
     -fx-font-weight: bold; /* Bold text */
     -fx-min-width: 30px; /* Minimum width */
@@ -36,8 +35,8 @@
     -fx-border-color: #000000; /* Border color for contrast */
     -fx-border-width: 0px; /* Border width */
 
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
-
+  /*  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
+*/
 }
 .button-circle > .text {
     -fx-translate-y: -2px; /* Move the text up */
@@ -46,7 +45,7 @@
 
 /* Button hover effect */
 .button-circle:hover {
-    -fx-background-color: #757575;  /* Darken the background color (steelblue) */
+    -fx-background-color: #cccccc;
     -fx-text-fill: black;            /* Optional: Change text color when hovered */
 
 }

@@ -1,18 +1,18 @@
 package com.cs210.groupproject;
 
 public class MenuItem {
-    private final String name;
-    private final double price;
-    private int quantity; // Quantity of the item
+    private String name;
+    private double price;
+    private int quantity;
+    private String imagePath;  // Add imagePath to hold the image file path
 
-    // Constructor
-    public MenuItem(String name, double price) {
+    public MenuItem(String name, double price, String imagePath) {
         this.name = name;
         this.price = price;
-        this.quantity = 0;  // Default quantity is 0
+        this.imagePath = imagePath;
+        this.quantity = 0;
     }
 
-    // Getter methods
     public String getName() {
         return name;
     }
@@ -25,20 +25,15 @@ public class MenuItem {
         return quantity;
     }
 
-    // Methods to increase and decrease the quantity
     public void increaseQuantity() {
         this.quantity++;
     }
 
     public void decreaseQuantity() {
-        if (this.quantity > 0) {
-            this.quantity--;
-        }
+        if (this.quantity > 0) this.quantity--;
     }
 
-    // Optionally, override toString() to display the item name, price, and quantity
-    @Override
-    public String toString() {
-        return name + " - $" + price + " \nquantity: " + quantity;
+    public String getImagePath() {
+        return imagePath;
     }
 }
