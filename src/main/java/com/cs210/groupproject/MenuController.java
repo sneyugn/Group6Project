@@ -14,21 +14,20 @@ import java.util.Objects;
 
 public class MenuController extends Application {
 
+    private Scene scene1;
     @Override
 
     //UI Initial Screen
     public void start (Stage primaryStage) {
         Label businessLabel = new Label("Six Sushi");
-        Label groupMembersLabel = new Label ("by Simon, Vlad, and Matthew");
+        Label groupMembersLabel = new Label("by Simon, Vlad, and Matthew");
         Button cartButton = new Button("CART");
         Button orderButton = new Button("ORDER");
         Button salesButton = new Button("CHECK SALES");
 
-
         //Image Insert
         Image logo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/6sushi.png"))); // Relative path
         Image cart = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/shoppingcart.png")));
-
 
 
         //Icon Insert
@@ -63,30 +62,29 @@ public class MenuController extends Application {
         groupMembersLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: Courier New; -fx-font-style: italic;");
 
 
-        HBox cartBox = new HBox(0,cartButton);
+        HBox cartBox = new HBox(0, cartButton);
         HBox labelBox = new HBox(0, businessLabel);
         HBox groupLabel = new HBox(0, groupMembersLabel);
-        HBox imageBox = new HBox(0,logoView);
+        HBox imageBox = new HBox(0, logoView);
 
         cartBox.setStyle("-fx-alignment: top-right;");
-        cartBox.setPadding(new Insets(10,10,0,0));
+        cartBox.setPadding(new Insets(10, 10, 0, 0));
 
         labelBox.setStyle("-fx-alignment: center;");
-        labelBox.setPadding(new Insets(0,0,0,0));
+        labelBox.setPadding(new Insets(0, 0, 0, 0));
         imageBox.setStyle("-fx-alignment: center;");
 
         groupLabel.setStyle("-fx-alignment: center;");
-        groupLabel.setPadding(new Insets(-10,0,0,0));
-
+        groupLabel.setPadding(new Insets(-10, 0, 0, 0));
 
 
         VBox layout = new VBox(0);
 
         layout.setStyle("-fx-background-color: BEIGE; -fx-border-radius: 20; -fx-background-radius: 0;");
-        HBox buttonBox = new HBox(15,orderButton,salesButton);
+        HBox buttonBox = new HBox(15, orderButton, salesButton);
 
         buttonBox.setSpacing(50);
-        buttonBox.setPadding(new Insets(0,0,0,20));
+        buttonBox.setPadding(new Insets(0, 0, 0, 20));
         buttonBox.setStyle("-fx-alignment: center;");
 
         layout.getChildren().addAll(
@@ -98,40 +96,38 @@ public class MenuController extends Application {
         );
 
 
-        //Control what buttons do
-        cartButton.setOnAction(e -> {
-            try {
-                System.out.println("Cart Working!");
-            } catch (Exception ex) {
-                orderButton.setText("Error: " + ex.getMessage());
-            }
-        });
-        orderButton.setOnAction(e -> {
-            try {
-                System.out.println("Order Working!");
-            } catch (Exception ex) {
-                orderButton.setText("Error: " + ex.getMessage());
-            }
-        });
-        salesButton.setOnAction(e -> {
-            try {
-                System.out.println("Sales Working!");
-            } catch (Exception ex) {
-                orderButton.setText("Error: " + ex.getMessage());
-            }
-        });
+        Scene scene1 = new Scene(layout, 400, 500);
 
-
-
-        Scene scene = new Scene(layout, 400, 500);
-
-        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+        scene1.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
         primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
+        primaryStage.setScene(scene1);
         primaryStage.setTitle("Six Sushi Kiosk");
         primaryStage.show();
 
+
+        //Control what buttons do
+
+        cartButton.setOnAction(e -> {
+
+            CartController cartController = new CartController(primaryStage);
+            primaryStage.setScene(cartController.getScene());
+        });
+
+
+        orderButton.setOnAction(e -> {
+            OrderController orderController = new OrderController(primaryStage);
+            primaryStage.setScene(orderController.getScene());
+        });
+
+        salesButton.setOnAction(e -> {
+            SalesController salesController = new SalesController(primaryStage);
+            primaryStage.setScene(salesController.getScene());
+        });
+    }
+        public Scene getScene(Stage stage) {
+            return scene1;
         }
+
         public static void main(String[] args) {
             launch(args);
         }
