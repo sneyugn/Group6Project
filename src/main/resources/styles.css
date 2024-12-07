@@ -1,17 +1,53 @@
 /* Default button style */
 .button {
-    -fx-background-color: white;  /* Normal background */
+    -fx-background-color: #FFFFFF;  /* Normal background */
     -fx-border-color: blue;           /* Border color */
     -fx-text-fill: black;              /* Text color */
     -fx-padding: 10px 20px;            /* Padding around the button */
     -fx-font-size: 14px;               /* Font size */
     -fx-font-weight: bold;             /* Font weight */
     -fx-background-radius: 5px;       /* Rounded corners */
-    -fx-border-radius: 5px;           /* Rounded corners for the border */
+    -fx-border-radius: 7px;           /* Rounded corners for the border */
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
 }
 
 /* Button hover effect */
 .button:hover {
-    -fx-background-color: #d6d6d6;  /* Darken the background color (steelblue) */
+    -fx-background-color: #757575;  /* Darken the background color (steelblue) */
     -fx-text-fill: black;            /* Optional: Change text color when hovered */
+   }
+
+/* Default button style */
+.button-circle {
+    -fx-background-color: #e8e8e8; /* White background color */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-min-width: 30px; /* Minimum width */
+    -fx-min-height: 30px; /* Minimum height */
+    -fx-pref-width: 30px; /* Preferred width */
+    -fx-pref-height: 30px; /* Preferred height */
+    -fx-shape: "M 15,0 A 15,15 0 1,1 14.999,0"; /* Circular shape */
+    -fx-border-radius: 50%; /* Make it circular */
+    -fx-background-radius: 50%; /* Make background circular */
+    -fx-alignment: center; /* Center the text inside */
+    -fx-font-size: 18px; /* Font size */
+    -fx-padding: 5px; /* Padding inside the button */
+    -fx-border-color: #000000; /* Border color for contrast */
+    -fx-border-width: 0px; /* Border width */
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 2, 2);
+
 }
+.button-circle > .text {
+    -fx-translate-y: -2px; /* Move the text up */
+}
+
+
+/* Button hover effect */
+.button-circle:hover {
+    -fx-background-color: #757575;  /* Darken the background color (steelblue) */
+    -fx-text-fill: black;            /* Optional: Change text color when hovered */
+
+}
+

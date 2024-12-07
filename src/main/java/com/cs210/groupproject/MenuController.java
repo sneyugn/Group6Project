@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 
 import java.util.Objects;
@@ -28,6 +30,7 @@ public class MenuController extends Application {
         //Image Insert
         Image logo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/6sushi.png"))); // Relative path
         Image cart = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/shoppingcart.png")));
+        Image sushi = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/sushibg.png")));
 
 
         //Icon Insert
@@ -49,17 +52,21 @@ public class MenuController extends Application {
 //        cartButton.setOnAction(e -> System.out.println("Order clicked!"));
 
         // Styles
+// Adjust button styling to ensure no extra lines
+        orderButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
+                "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
+                "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
 
-        orderButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 0; " +
-                "-fx-background-radius: 0; -fx-font-size:14px; -fx-font-family: Courier New; -fx-border-color: #000000; -fx-border-width: 3px;");
+        salesButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
+                "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
+                "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
 
-        salesButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 0; " +
-                "-fx-background-radius: 0; -fx-font-size:14px; -fx-font-family: Courier New; -fx-border-color: #000000; -fx-border-width: 3px;");
-        cartButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 0; " +
-                "-fx-background-radius: 0; -fx-font-size:14px; -fx-font-family: Courier New; -fx-border-color: #000000; -fx-border-width: 3px;");
+        cartButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
+                "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
+                "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
 
-        businessLabel.setStyle("-fx-font-size: 72px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: Courier New; -fx-font-style: italic;");
-        groupMembersLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: black; -fx-font-family: Courier New; -fx-font-style: italic;");
+        businessLabel.setStyle("-fx-font-size: 72px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: Courier New; -fx-font-style: italic;");
+        groupMembersLabel.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: Courier New; -fx-font-style: italic;");
 
 
         HBox cartBox = new HBox(0, cartButton);
@@ -79,15 +86,25 @@ public class MenuController extends Application {
 
 
         VBox layout = new VBox(0);
+        // Create a semi-transparent black rectangle overlay
 
-        layout.setStyle("-fx-background-color: BEIGE; -fx-border-radius: 20; -fx-background-radius: 0;");
+        //layout.setStyle("-fx-background-color: transparent;");
+        layout.setBackground(new javafx.scene.layout.Background(
+                new javafx.scene.layout.BackgroundImage(sushi,
+                        javafx.scene.layout.BackgroundRepeat.NO_REPEAT,
+                        javafx.scene.layout.BackgroundRepeat.NO_REPEAT,
+                        javafx.scene.layout.BackgroundPosition.CENTER,
+                        javafx.scene.layout.BackgroundSize.DEFAULT)
+        ));
+
+
         HBox buttonBox = new HBox(15, orderButton, salesButton);
-
         buttonBox.setSpacing(50);
         buttonBox.setPadding(new Insets(0, 0, 0, 0));
         buttonBox.setStyle("-fx-alignment: center;");
 
         layout.getChildren().addAll(
+
                 cartBox,
                 labelBox,
                 groupLabel,
