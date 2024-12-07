@@ -10,7 +10,7 @@ public class MenuItem {
         this.name = name;
         this.price = price;
         this.imagePath = imagePath;
-        this.quantity = 0;  // Default quantity is 0
+        this.quantity = 0;
     }
 
     public String getName() {
@@ -33,9 +33,9 @@ public class MenuItem {
         if (this.quantity > 0) this.quantity--;
     }
 
-    // Add setQuantity method
+
     public void setQuantity(int quantity) {
-        if (quantity >= 0) { // Prevent negative quantities
+        if (quantity >= 0) {
             this.quantity = quantity;
         }
     }

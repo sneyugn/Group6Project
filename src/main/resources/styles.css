@@ -10,12 +10,28 @@
     -fx-border-radius: 7px;           /* Rounded corners for the border */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
 }
-
 /* Button hover effect */
 .button:hover {
     -fx-background-color: #cccccc;  /* Darken the background color (steelblue) */
     -fx-text-fill: black;            /* Optional: Change text color when hovered */
    }
+
+.close-button {
+   -fx-background-color: #FFFFFF;  /* Normal background */
+   -fx-border-color: blue;           /* Border color */
+   -fx-text-fill: black;              /* Text color */
+   -fx-padding: 10px 20px;            /* Padding around the button */
+   -fx-font-size: 14px;               /* Font size */
+   -fx-font-weight: bold;             /* Font weight */
+   -fx-background-radius: 5px;       /* Rounded corners */
+   -fx-border-radius: 7px;           /* Rounded corners for the border */
+   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
+}
+/* Button hover effect */
+.close-button:hover {
+   -fx-background-color: #cccccc;  /* Darken the background color (steelblue) */
+   -fx-text-fill: black;            /* Optional: Change text color when hovered */
+  }
 
 /* Default button style */
 .button-circle {

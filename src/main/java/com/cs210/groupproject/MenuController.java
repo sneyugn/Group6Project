@@ -19,7 +19,7 @@ public class MenuController extends Application {
     private Scene scene1;
     @Override
 
-    //UI Initial Screen
+    //UI Screen
     public void start (Stage primaryStage) {
         Label businessLabel = new Label("Six Sushi");
         Label groupMembersLabel = new Label("by Simon, Vlad, and Matthew");
@@ -52,7 +52,7 @@ public class MenuController extends Application {
 //        cartButton.setOnAction(e -> System.out.println("Order clicked!"));
 
         // Styles
-// Adjust button styling to ensure no extra lines
+
         orderButton.setStyle("-fx-font-weight: bold; -fx-border-radius: 25px; " +
                 "-fx-background-radius: 25px; -fx-font-size:16px; -fx-font-family: Courier New; " +
                 "-fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 10px 30px;");
@@ -84,9 +84,8 @@ public class MenuController extends Application {
 
         VBox layout = new VBox(0);
         layout.setPadding(new Insets(40,0,0,0));
-        // Create a semi-transparent black rectangle overlay
 
-        //layout.setStyle("-fx-background-color: transparent;");
+
         layout.setBackground(new javafx.scene.layout.Background(
                 new javafx.scene.layout.BackgroundImage(sushi,
                         javafx.scene.layout.BackgroundRepeat.NO_REPEAT,
